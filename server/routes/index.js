@@ -32,33 +32,37 @@ function requireAuth(req, res, next) {
   next();
 }
 //connect to our contacts model
-let contactController = require("../controllers/dashboard");
+let dashboardController = require("../controllers/dashboard");
 //GET ROUTE for the contact list page -READ OPERATION
-router.get("/dashboard", requireAuth, contactController.displayDashboard);
+router.get("/dashboard", requireAuth, dashboardController.displayDashboard);
 
 /*GET Route for displaying the Add Page- CREATE Operation*/
 router.get(
   "/incidentRecord/add",
   requireAuth,
-  contactController.displayAddIncidentRecord
+  dashboardController.displayAddIncidentRecord
 );
 
 /*GET Route for displaying the Edit page - UPDATE operation*/
 
-router.get(
-  "/incidentRecord/edit/:id",
-  requireAuth,
-  contactController.displayEditPage
-);
+// router.get(
+//   "/incidentRecord/edit/:id",
+//   requireAuth,
+//   dashboardController.displayEditPage
+// );
 
-/*POST Route for processing the Edit page - UPDATE Operation*/
+// /*POST Route for processing the Edit page - UPDATE Operation*/
 // router.post(
 //   "/contact/edit/:id",
 //   requireAuth,
-//   contactController.processEditPage
+//   dashboardController.processEditPage
 // );
 
 // /*GET to perform Deletion - DELETE Operation */
-// router.get("/contact/delete/:id", requireAuth, contactController.performDelete);
+// router.get(
+//   "/contact/delete/:id",
+//   requireAuth,
+//   dashboardController.performDelete
+// );
 
 module.exports = router;
