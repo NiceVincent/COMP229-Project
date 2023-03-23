@@ -4,51 +4,41 @@
   <div class="row">
     <div class="offset-md-3 col-md-6">
       <h1><%=title%></h1>
-      <form method="post" action="/contact/edit/<%= contact._id %>">
+      <form method="post" action="/contact/add">
         <div class="form-group">
-          <label for="firstName">First Name:</label>
+          <label for="recordNumber">Record Number:</label>
           <input
             type="text"
             class="form-control"
-            id="firstName"
-            name="firstName"
+            id="recordNumber"
+            name="recordNumber"
+            pattern="[\d]{6}-[\d]{7}"
             required
-            value="<%= contact.firstName %>"
+            value=""
           />
         </div>
         <div class="form-group">
-          <label for="lastName">Last Name:</label>
+          <label for="incidentNarrative">Incident Narrative:</label>
           <input
-            type="text"
             class="form-control"
-            id="lastName"
-            name="lastName"
+            id="incidentNarrative"
+            name="incidentNarrative"
+            type="time"
+            step="1"
             required
-            value="<%= contact.lastName %>"
+            value=""
           />
         </div>
         <div class="form-group">
-          <label for="phone">Contact Number:</label>
+          <label for="status">Status:</label>
           <input
             type="text"
             class="form-control"
-            id="phone"
-            name="phone"
+            id="status"
+            name="status"
             type="tel"
             required
-            value="<%= contact.phone %>"
-          />
-        </div>
-        <div class="form-group">
-          <label for="email">Email Address:</label>
-          <input
-            type="email"
-            class="form-control"
-            id="email"
-            name="email"
-            type="email"
-            required
-            value="<%= contact.email %>"
+            value="NEW"
           />
         </div>
         <div class="row">
