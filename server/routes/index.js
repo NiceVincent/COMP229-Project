@@ -32,29 +32,33 @@ function requireAuth(req, res, next) {
   next();
 }
 //connect to our contacts model
-let contactController = require("../controllers/contact");
+let contactController = require("../controllers/dashboard");
 //GET ROUTE for the contact list page -READ OPERATION
-router.get("/contact/list", requireAuth, contactController.displayContactList);
+router.get("/dashboard", requireAuth, contactController.displayDashboard);
 
 /*GET Route for displaying the Add Page- CREATE Operation*/
-router.get("/contact/add", requireAuth, contactController.displayAddPage);
-
-/* POST Route for processing the Add Page - CREATE operation*/
-
-router.post("/contact/add", requireAuth, contactController.processAddPage);
+router.get(
+  "/incidentRecord/add",
+  requireAuth,
+  contactController.displayAddIncidentRecord
+);
 
 /*GET Route for displaying the Edit page - UPDATE operation*/
 
-router.get("/contact/edit/:id", requireAuth, contactController.displayEditPage);
-
-/*POST Route for processing the Edit page - UPDATE Operation*/
-router.post(
-  "/contact/edit/:id",
+router.get(
+  "/incidentRecord/edit/:id",
   requireAuth,
-  contactController.processEditPage
+  contactController.displayEditPage
 );
 
-/*GET to perform Deletion - DELETE Operation */
-router.get("/contact/delete/:id", requireAuth, contactController.performDelete);
+/*POST Route for processing the Edit page - UPDATE Operation*/
+// router.post(
+//   "/contact/edit/:id",
+//   requireAuth,
+//   contactController.processEditPage
+// );
+
+// /*GET to perform Deletion - DELETE Operation */
+// router.get("/contact/delete/:id", requireAuth, contactController.performDelete);
 
 module.exports = router;
