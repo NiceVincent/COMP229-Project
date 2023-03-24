@@ -2,7 +2,7 @@ let express = require("express");
 let router = express.Router();
 let mongoose = require("mongoose");
 //create a reference to the db Schema which is the model
-let Contact = require("../models/contacts");
+let Contact = require("../models/incidentRecord");
 
 //we want to display the contactList
 module.exports.displayDashboard = (req, res, next) => {
