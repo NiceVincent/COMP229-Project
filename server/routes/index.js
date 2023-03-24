@@ -43,26 +43,4 @@ router.get(
   dashboardController.displayAddIncidentRecord
 );
 
-/*GET Route for displaying the Edit page - UPDATE operation*/
-
-// router.get(
-//   "/incidentRecord/edit/:id",
-//   requireAuth,
-//   dashboardController.displayEditPage
-// );
-
-// /*POST Route for processing the Edit page - UPDATE Operation*/
-// router.post(
-//   "/contact/edit/:id",
-//   requireAuth,
-//   dashboardController.processEditPage
-// );
-
-// /*GET to perform Deletion - DELETE Operation */
-// router.get(
-//   "/contact/delete/:id",
-//   requireAuth,
-//   dashboardController.performDelete
-// );
-
 module.exports = router;
