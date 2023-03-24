@@ -40,7 +40,7 @@ module.exports.displayAddIncidentRecord = (req, res, next) => {
 //       console.log(err);
 //       res.end(err);
 //     } else {
-//       res.redirect("/contact/list");
+//       res.redirect("/dashboard");
 //     }
 //   });
 // };
@@ -77,7 +77,7 @@ module.exports.displayAddIncidentRecord = (req, res, next) => {
 //       res.end(err);
 //     } else {
 //       //console.log(contactList);
-//       res.redirect("/contact/list");
+//       res.redirect("/dashboard");
 //     }
 //   });
 // };
@@ -89,7 +89,7 @@ module.exports.displayAddIncidentRecord = (req, res, next) => {
 //       console.log(err);
 //       res.end(err);
 //     } else {
-//       res.redirect("/contact/list");
+//       res.redirect("/dashboard");
 //     }
 //   });
 // };
