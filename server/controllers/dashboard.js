@@ -8,13 +8,13 @@ let Contact = require("../models/incidentRecord");
 module.exports.displayDashboard = (req, res, next) => {
   Contact.find()
     .sort({ lastName: "asc" })
-    .exec((err, contactList) => {
+    .exec((err, incidentRecords) => {
       if (err) {
         return console.error(err);
       } else {
         res.render("dashboard", {
           title: "Dashboard",
-          contactList: contactList,
+          incidentRecords: incidentRecords,
           displayName: req.user ? req.user.displayName : "",
         });
       }

@@ -14,41 +14,41 @@
   </div>
   <div class="row">
     <div class="col-md-10">
-      <% for (let contact of contactList) { %>
+      <% for (let record of incidentRecords) { %>
       <div class="card mb-3">
         <div class="card-body">
           <div class="row">
             <div class="col-md-4">
               <h5 class="card-title">
-                <%= contact.lastName %>, <%= contact.firstName %>
+                Record number: <%= record.recordNumber %>
               </h5>
             </div>
           </div>
           <div class="row">
             <div class="col-md-2">
-              <p class="card-text">Phone</p>
+              <p class="card-text">Incident Narrative</p>
             </div>
             <div class="col-md-6">
-              <p class="card-text">Email</p>
+              <p class="card-text">Status</p>
             </div>
           </div>
           <div class="row">
-            <div class="col-md-2">
-              <p class="card-text"><%= contact.phone %></p>
+            <div class="col-md-6">
+              <p class="card-text"><%= record.incidentNarrative %></p>
             </div>
             <div class="col-md-6">
-              <p class="card-text"><%= contact.email %></p>
+              <p class="card-text"><%= record.status %></p>
             </div>
             <div class="col-md-1">
               <a
-                href="/incidentRecord/edit/<%= contact._id %>"
+                href="/incidentRecord/edit/<%= record._id %>"
                 class="btn btn-primary"
                 >Update</a
               >
             </div>
             <div class="col-md-1">
               <a
-                href="/incidentRecord/delete/<%- contact._id %>"
+                href="/incidentRecord/delete/<%- record._id %>"
                 class="btn btn-primary btn-danger"
                 >Delete</a
               >

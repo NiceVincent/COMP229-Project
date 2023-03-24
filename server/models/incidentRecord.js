@@ -1,26 +1,22 @@
 let mongoose = require("mongoose");
 let contactModel = mongoose.Schema(
   {
-    firstName: {
+    recordNumber: {
       type: String,
       required: true,
     },
-    lastName: {
+    incidentNarrative: {
       type: String,
       required: true,
     },
-    phone: {
-      type: String,
-      required: true,
-    },
-    email: {
+    status: {
       type: String,
       required: true,
     },
   },
   {
-    collection: "Contact",
+    collection: "incidentRecord",
   }
 );
 
-module.exports = mongoose.model("Contact", contactModel);
+module.exports = mongoose.model("incidentRecord", incidentRecord);
