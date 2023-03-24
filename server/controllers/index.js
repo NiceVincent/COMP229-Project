@@ -34,9 +34,9 @@ module.exports.displayServicesPage = (req, res, next) => {
   });
 };
 
-module.exports.displayContactPage = (req, res, next) => {
+module.exports.displayincidentRecordPage = (req, res, next) => {
   res.render("index", {
-    title: "Contact",
+    title: "incidentRecord",
     displayName: req.user ? req.user.displayName : "",
   });
 };

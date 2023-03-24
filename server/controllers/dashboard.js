@@ -2,19 +2,20 @@ let express = require("express");
 let router = express.Router();
 let mongoose = require("mongoose");
 //create a reference to the db Schema which is the model
-let Contact = require("../models/contacts");
+let incidentRecord = require("../models/incidentRecords");
 
-//we want to display the contactList
+//we want to display the incidentRecordList
 module.exports.displayDashboard = (req, res, next) => {
-  Contact.find()
+  incidentRecord
+    .find()
     .sort({ lastName: "asc" })
-    .exec((err, contactList) => {
+    .exec((err, incidentRecordList) => {
       if (err) {
         return console.error(err);
       } else {
         res.render("dashboard", {
           title: "Dashboard",
-          contactList: contactList,
+          incidentRecordList: incidentRecordList,
           displayName: req.user ? req.user.displayName : "",
         });
       }
@@ -26,70 +27,3 @@ module.exports.displayAddIncidentRecord = (req, res, next) => {
     displayName: req.user ? req.user.displayName : "",
   });
 };
-
-// module.exports.processAddPage = (req, res, next) => {
-//   console.log(req.body);
-//   let newContact = Contact({
-//     firstName: req.body.firstName,
-//     lastName: req.body.lastName,
-//     phone: req.body.phone,
-//     email: req.body.email,
-//   });
-//   Contact.create(newContact, (err, contact) => {
-//     if (err) {
-//       console.log(err);
-//       res.end(err);
-//     } else {
-//       res.redirect("/dashboard");
-//     }
-//   });
-// };
-
-// module.exports.displayEditPage = (req, res, next) => {
-//   let id = req.params.id;
-//   Contact.findById(id, (err, contactToEdit) => {
-//     if (err) {
-//       console.log(err);
-//       res.end(err);
-//     } else {
-//       res.render("contact/edit", {
-//         title: "Edit Contact",
-//         contact: contactToEdit,
-//         displayName: req.user ? req.user.displayName : "",
-//       });
-//     }
-//   });
-// };
-
-// module.exports.processEditPage = (req, res, next) => {
-//   let id = req.params.id;
-//   let updatedContact = Contact({
-//     _id: id,
-//     firstName: req.body.firstName,
-//     lastName: req.body.lastName,
-//     phone: req.body.phone,
-//     email: req.body.email,
-//   });
-//   console.log("req.body.price", req.body);
-//   Contact.updateOne({ _id: id }, updatedContact, (err) => {
-//     if (err) {
-//       console.log(err);
-//       res.end(err);
-//     } else {
-//       //console.log(contactList);
-//       res.redirect("/dashboard");
-//     }
-//   });
-// };
-
-// module.exports.performDelete = (req, res, next) => {
-//   let id = req.params.id;
-//   Contact.remove({ _id: id }, (err) => {
-//     if (err) {
-//       console.log(err);
-//       res.end(err);
-//     } else {
-//       res.redirect("/dashboard");
-//     }
-//   });
-// };

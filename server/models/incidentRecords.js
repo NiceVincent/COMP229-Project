@@ -1,5 +1,5 @@
 let mongoose = require("mongoose");
-let contactModel = mongoose.Schema(
+let incidentRecordModel = mongoose.Schema(
   {
     firstName: {
       type: String,
@@ -19,8 +19,8 @@ let contactModel = mongoose.Schema(
     },
   },
   {
-    collection: "Contact",
+    collection: "incidentRecord",
   }
 );
 
-module.exports = mongoose.model("Contact", contactModel);
+module.exports = mongoose.model("incidentRecord", incidentRecordModel);
