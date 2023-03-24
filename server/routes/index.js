@@ -31,9 +31,9 @@ function requireAuth(req, res, next) {
   }
   next();
 }
-//connect to our incidentRecords model
+//connect to our contacts model
 let dashboardController = require("../controllers/dashboard");
-//GET ROUTE for the incidentRecord list page -READ OPERATION
+//GET ROUTE for the contact list page -READ OPERATION
 router.get("/dashboard", requireAuth, dashboardController.displayDashboard);
 
 /*GET Route for displaying the Add Page- CREATE Operation*/
@@ -53,14 +53,14 @@ router.get(
 
 // /*POST Route for processing the Edit page - UPDATE Operation*/
 // router.post(
-//   "/incidentRecord/edit/:id",
+//   "/contact/edit/:id",
 //   requireAuth,
 //   dashboardController.processEditPage
 // );
 
 // /*GET to perform Deletion - DELETE Operation */
 // router.get(
-//   "/incidentRecord/delete/:id",
+//   "/contact/delete/:id",
 //   requireAuth,
 //   dashboardController.performDelete
 // );

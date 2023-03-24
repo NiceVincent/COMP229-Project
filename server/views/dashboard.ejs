@@ -7,20 +7,20 @@
       <h1><%=title %></h1>
     </div>
     <div class="offset-md-1 col-md-2 right">
-      <a href="/incidentRecord/add" class="btn btn-primary" role="button"
+      <a href="/contact/add" class="btn btn-primary" role="button"
         ><i class="fas fa-plus-circle"></i>Add a incident record</a
       >
     </div>
   </div>
   <div class="row">
     <div class="col-md-10">
-      <% for (let incidentRecord of incidentRecordList) { %>
+      <% for (let contact of contactList) { %>
       <div class="card mb-3">
         <div class="card-body">
           <div class="row">
             <div class="col-md-4">
               <h5 class="card-title">
-                <%= incidentRecord.lastName %>, <%= incidentRecord.firstName %>
+                <%= contact.lastName %>, <%= contact.firstName %>
               </h5>
             </div>
           </div>
@@ -34,21 +34,19 @@
           </div>
           <div class="row">
             <div class="col-md-2">
-              <p class="card-text"><%= incidentRecord.phone %></p>
+              <p class="card-text"><%= contact.phone %></p>
             </div>
             <div class="col-md-6">
-              <p class="card-text"><%= incidentRecord.email %></p>
+              <p class="card-text"><%= contact.email %></p>
             </div>
             <div class="col-md-1">
-              <a
-                href="/incidentRecord/edit/<%= incidentRecord._id %>"
-                class="btn btn-primary"
+              <a href="/contact/edit/<%= contact._id %>" class="btn btn-primary"
                 >Update</a
               >
             </div>
             <div class="col-md-1">
               <a
-                href="/incidentRecord/delete/<%- incidentRecord._id %>"
+                href="/contact/delete/<%- contact._id %>"
                 class="btn btn-primary btn-danger"
                 >Delete</a
               >
