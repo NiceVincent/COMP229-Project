@@ -115,7 +115,7 @@ module.exports.processRegisterPage = (req, res, next) => {
       //if no error exists, then registration is successful
       //redirect the user and authenticate them
       return passport.authenticate("local")(req, res, () => {
-        res.redirect("/video");
+        res.redirect("/videos");
       });
     }
   });
