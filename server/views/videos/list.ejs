@@ -1,0 +1,84 @@
+<%-include ../partials/header.ejs%> <%-include ../partials/main_nav.ejs%>
+<!--Main Nav Navigation-->
+<!-- Geng Wei, Tu | 301337045 -->
+<!-- videos list view -->
+<main class="container mb-5">
+  <div class="row fullbox">
+    <div class="col-sm-12">
+      <div class="video-form">
+        <div id="video-note" class="box-shadow-full">
+          <div class="offset-md-1 col-md-10">
+            <h1><%= title %></h1>
+            <%if(typeof displayName =='string' && displayName){%>
+              <a href="/videos/add" class="btn btn-primary" role="button">
+                <i class="fas fa-plus-circle"></i>Add a video notes
+              </a>
+            <%}%>
+            <br>
+
+            <table class="table table-bordered table-striped table-hover">
+                <!--Header Row-->
+                <tr>
+                  <%if(typeof displayName =='string' && displayName){%>
+                    <th class="text-center col-2">Name</th>
+                    <th class="text-center col-2">Video URL</th>
+                    <th class="text-center col-3">Created At</th>
+                    <th class="text-center col-1">Status</th>
+                    <th class="text-center col-1">Result</th>
+
+                    <th class="text-center col-1"></th>
+                    <th class="text-center col-1"></th>
+                  <%}else{%>
+                    <th class="text-center col-2">Name</th>
+                    <th class="text-center col-2">Video URL</th>
+                    <th class="text-center col-3">Created At</th>
+                    <th class="text-center col-1">Status</th>
+                    <th class="text-center col-1">Result</th>
+                  <%}%>
+                </tr>
+
+                <%for(let i = 0; i < videoNoteList.length; i++){%>
+
+                  <tr>
+                    <%if(typeof displayName =='string'&&displayName){%>
+                      <td class="text-center col-2"><%=videoNoteList[i].name%></td>
+                      <td class="text-center col-2"><%=videoNoteList[i].videoLink%></td>
+                      <td class="text-center col-3"><%=videoNoteList[i].createdAt%></td>
+                      <td class="text-center col-1"><%=videoNoteList[i].syncStatus ? 'Parsed' : 'Not Parsed' %></td>
+                      <td class="text-center col-1"><%=videoNoteList[i].predictResult ? videoNoteList[i].predictResult : 'None' %></td>
+                      <td class="text-center col-1">
+                        <a href="/videos/edit/<%=videoNoteList[i]._id%>" class="btn btn-primary"><i class="fas fa-pencil-alt"></i>Edit</a>
+                      </td>
+                      <td class="text-center col-1"><a href="/videos/delete/<%=videoNoteList[i]._id%>" class="btn btn-danger"><i class="fas fa-trash-alt"></i>Delete</a></td>
+                    
+                    <%}else{%>
+                      <td class="text-center col-2"><%=videoNoteList[i].name%></td>
+                      <td class="text-center col-2"><%=videoNoteList[i].videoLink%></td>
+                      <td class="text-center col-3"><%=videoNoteList[i].createdAt%></td>
+                      <td class="text-center col-1"><%=videoNoteList[i].syncStatus ? 'Parsed' : 'Not Parsed' %></td>
+                      <td class="text-center col-1"><%=videoNoteList[i].predictResult ? videoNoteList[i].predictResult : 'None'%></td>
+                    <%}%>  
+                  </tr>
+
+                <%}%>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+<%-include ../partials/bottom_nav.ejs%> <%-include ../partials/footer.ejs%>
+
+<style>
+  .fullbox {
+    height: 100%;
+  }
+  .contact-form {
+    margin-top: 4rem;
+  }
+  .box-shadow-full {
+      display: flex;
+      justify-content: center;
+  }
+</style>
