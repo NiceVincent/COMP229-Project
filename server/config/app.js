@@ -20,14 +20,14 @@ mongoDB.on("error", console.error.bind(console, "Connection Error:"));
 mongoDB.once("open", () => {
   console.log("connected to MongoDB...");
 });
-// before route
-app.use(cors());
 
 let indexRouter = require("../routes/index");
 let usersRouter = require("../routes/users");
 let videosRouter = require("../routes/videos");
 
 let app = express();
+// before route
+app.use(cors());
 
 // view engine setup
 app.set("views", path.join(__dirname, "../views"));
