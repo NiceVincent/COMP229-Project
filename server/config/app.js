@@ -2,6 +2,7 @@ let createError = require("http-errors");
 let express = require("express");
 let path = require("path");
 let cookieParser = require("cookie-parser");
+let cors = require('cors');
 let logger = require("morgan");
 //modules for authentication
 let session = require("express-session");
@@ -19,6 +20,8 @@ mongoDB.on("error", console.error.bind(console, "Connection Error:"));
 mongoDB.once("open", () => {
   console.log("connected to MongoDB...");
 });
+// before route
+app.use(cors());
 
 let indexRouter = require("../routes/index");
 let usersRouter = require("../routes/users");

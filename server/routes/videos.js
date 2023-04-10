@@ -14,21 +14,27 @@ function requireAuth(req, res, next) {
 let videosController = require('../controllers/videos');
 
 //GET ROUTE for the book list page -READ OPERATION
+// For Angular API
 router.get('/', videosController.displayVideoNoteList);
 
 /*GET Route for displaying the Add Page- CREATE Operation*/
 router.get('/add', requireAuth, videosController.displayAddPage);
 
 /* POST Route for processing the Add Page - CREATE operation*/
-router.post('/add', requireAuth, videosController.processAddPage);
+// router.post('/add', requireAuth, videosController.processAddPage);
+// For Angular API
+router.post('/add', videosController.processAddPage);
 
 /*GET Route for displaying the Edit page - UPDATE operation*/
 router.get('/edit/:id', requireAuth, videosController.displayEditPage);
 
 /*POST Route for processing the Edit page - UPDATE Operation*/
-router.post('/edit/:id', requireAuth, videosController.processEditPage);
+// For Angular API
+// router.post('/edit/:id', requireAuth, videosController.processEditPage);
+router.post('/edit/:id', videosController.processEditPage);
 
 /*GET to perform Deletion - DELETE Operation */
-router.get('/delete/:id', requireAuth, videosController.performDelete);
+// For Angular API
+router.delete('/:id', videosController.performDelete);
 
 module.exports = router;
